@@ -27,12 +27,5 @@
         country: String
     });
 
-    // hash user password before saving into database
-    CustomerSchema.pre('save', function(next){
-        this.password = bcrypt.hashSync(this.password, saltRounds);
-        next();
-    });
-
-
     module.exports = mongoose.model('customers', CustomerSchema);
 })();
